@@ -1,0 +1,108 @@
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		#top-bar {
+			background-color: #00b386;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 20px;
+		}
+		#logo {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: gray;
+		}
+		#search-bar {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+		}
+		#search-box {
+			border: none;
+			border-radius: 5px;
+			padding: 5px;
+			margin-right: 10px;
+			width: 200px;
+			font-size: 16px;
+		}
+		#search-button {
+			background-color: white;
+			border: none;
+			color: black;
+			padding: 5px 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		#textbook-container {
+			padding: 20px;
+		}
+		#home {
+			background-color: white;
+			width: 40px;
+			height: 40px;
+		}
+		.textbook-row {
+			margin-bottom: 20px;
+		}
+		.textbook-row label {
+			display: block;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.textbook {
+			display: inline-block;
+			width: 200px;
+			height: 300px;
+			margin-right: 20px;
+			background-color: lightgray;
+			text-align: center;
+			position: relative;
+		}
+		.textbook img {
+			width: 120px;
+			height: 120px;
+			margin-top: 20px;
+		}
+		.textbook h3 {
+			margin-top: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.textbook p {
+			margin-top: 5px;
+			font-size: 14px;
+		}
+		.textbook button {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: cyan;
+			border: none;
+			color: white;
+			padding: 5px 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 14px;
+		}
+	#content {
+	text-align: center;
+	padding: 20px;
+}
+
+.team-member {
+	margin-top: 30px;
+}
+
+.team-member img {
+	max-width: 200px;
+	border-radius: 50%;
+}
