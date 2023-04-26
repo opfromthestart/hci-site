@@ -59,16 +59,16 @@
 		}
 		.textbook {
 			display: inline-block;
-			width: 200px;
-			height: 300px;
+			width: 210px;
+			height: 310px;
 			margin-right: 20px;
 			background-color: lightgray;
 			text-align: center;
 			position: relative;
 		}
 		.textbook img {
-			width: 120px;
-			height: 120px;
+			width: 200px;
+			height: 250px;
 			margin-top: 20px;
 		}
 		.textbook h3 {
