@@ -60,5 +60,17 @@
 			</div>
 		</div>
 	</div>
+	<div id='message'>Added to cart</div>
+	<script>
+		var message = document.getElementById('message');
+		setTimeout(function(){
+			for (let i=0; i<=20; i++) {
+				setTimeout(() => {
+					message.style.opacity = String(1-i/20);
+				}, i*20);
+			}
+  			// message.style.opacity = '0';
+		}, 1500);
+	</script>
 </body>
 </html>
