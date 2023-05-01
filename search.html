@@ -27,7 +27,7 @@
 						<p>ISBN: 978-1-23456-789-0</p>
 						<p>Author: John Smith</p>
 						<p>Price: $20.00</p>
-						<a href="cart.html"><button>Add to Cart</button></a>
+						<button onclick="add_book('science1.jpg', 'Science Textbook 1', '978-1-23456-789-0', 'John Smith', '20.00')">Add to Cart</button>
 					</div>
 				</div>
 			</li>
@@ -39,7 +39,7 @@
 						<p>ISBN: 978-1-23456-789-1</p>
 						<p>Author: Jane Doe</p>
 						<p>Price: $25.00</p>
-						<a href="cart.html"><button>Add to Cart</button></a>
+						<button onclick="add_book('english2.jpg', 'English Textbook 2', '978-1-23456-789-1', 'Jane Doe', '25.00')">Add to Cart</button>
 					</div>
 				</div>
 			</li>
@@ -51,11 +51,19 @@
 						<p>ISBN: 978-1-23456-789-2</p>
 						<p>Author: James Smith</p>
 						<p>Price: $30.00</p>
-						<a href="cart.html"><button>Add to Cart</button></a>
+						<button onclick="add_book('math3.jpg', 'Math Textbook 3', '978-1-23456-789-2', 'James Smith', '30.00')">Add to Cart</button>
 					</div>
 				</div>
 			</li>
 		</ul>
 	</div>
+	<script>
+		function add_book(img, name, isbn, author, price) {
+			let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
+			cart.push({img: img, name: name, isbn: isbn, author: author, price: price})
+			window.sessionStorage.setItem("cart", JSON.stringify(cart_list))
+			window.location.href = "/cart.html"
+		}
+	</script>
 </body>
 </html>

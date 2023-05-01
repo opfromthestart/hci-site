@@ -19,40 +19,7 @@
 	<div class="container">
 		<div class="cart">
 			<h3>My Cart</h3>
-			<ul>
-				<li>
-					<div class="cart-item">
-						<img src="science1.jpg" alt="Science Textbook 1">
-						<div class="cart-item-info">
-							<h4>Science Textbook 1</h4>
-							<p>ISBN: 978-1-23456-789-0</p>
-							<p>Author: John Smith</p>
-							<p>Price: $20.00</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="cart-item">
-						<img src="english2.jpg" alt="English Textbook 2">
-						<div class="cart-item-info">
-							<h4>English Textbook 2</h4>
-							<p>ISBN: 978-1-23456-789-1</p>
-							<p>Author: Jane Doe</p>
-							<p>Price: $25.00</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="cart-item">
-						<img src="math3.jpg" alt="Math Textbook 3">
-						<div class="cart-item-info">
-							<h4>Math Textbook 3</h4>
-							<p>ISBN: 978-1-23456-789-2</p>
-							<p>Author: James Smith</p>
-							<p>Price: $30.00</p>
-						</div>
-					</div>
-				</li>
+			<ul id="cart-list">
 			</ul>
 			<div class="cart-summary">
 				<p>Total: $75.00</p>
@@ -60,9 +27,42 @@
 			</div>
 		</div>
 	</div>
-	<div id='message'>Added to cart</div>
+	<div id='message'>Cart updated</div>
 	<script>
-		var message = document.getElementById('message');
+		function make_cart(img, name, isbn, author, price) {
+			let v = `<div class="cart-item">
+						<img src="${img}" alt="${name}">
+						<div class="cart-item-info">
+							<h4>${name}</h4>
+							<p>ISBN: ${isbn}</p>
+							<p>Author: ${author}</p>
+							<p>Price: $${price}</p>
+						</div>
+						<button onclick="remove_cart(${isbn})">Remove from cart</button>
+					</div>`
+			let l = document.createElement('li')
+			l.innerHTML = v
+			return l
+		}
+
+		function remove_cart(isbn) {
+			let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
+			for (book in cart_list) {
+				if (book.isbn == isbn) {
+					cart_list.remove(book)
+				}
+			}
+			window.sessionStorage.setItem("cart", JSON.stringify(cart_list))
+			window.location.reload()
+		}
+
+		let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
+		let cart = document.getElementById("cart-list");
+		for (book in cart_list) {
+			cart.appendChild(make_cart(book.img, book.name, book.isbn, book.author, book.price))
+		}
+		
+		let message = document.getElementById('message');
 		setTimeout(function(){
 			for (let i=0; i<=20; i++) {
 				setTimeout(() => {
