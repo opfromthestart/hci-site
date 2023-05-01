@@ -60,7 +60,10 @@
 	<script>
 		function add_book(img, name, isbn, author, price) {
 			let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
-			cart.push({img: img, name: name, isbn: isbn, author: author, price: price})
+			if (cart_list === null) {
+				cart_list = []
+			}
+			cart_list.push({img: img, name: name, isbn: isbn, author: author, price: price})
 			window.sessionStorage.setItem("cart", JSON.stringify(cart_list))
 			window.location.href = "/cart.html"
 		}
