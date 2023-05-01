@@ -47,7 +47,7 @@
 
 		function remove_cart(isbn) {
 			let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
-			cart_list = cart_list.filter((book) => {book != null && book.isbn != isbn})
+			cart_list = cart_list.filter((book) => {return book != null && book.isbn != isbn})
 			window.sessionStorage.setItem("cart", JSON.stringify(cart_list))
 			window.location.reload()
 		}
