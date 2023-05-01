@@ -22,7 +22,7 @@
 			<ul id="cart-list">
 			</ul>
 			<div class="cart-summary">
-				<p>Total: $75.00</p>
+				<p id="total">Total: $0.00</p>
 				<a href="/hci-site/checkout.html"><button>Proceed to Checkout</button></a>
 			</div>
 		</div>
@@ -54,10 +54,14 @@
 
 		let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
 		let cart = document.getElementById("cart-list");
+		let total = 0
 		for (b in cart_list) {
 			let book = cart_list[b]
 			cart.appendChild(make_cart(book.img, book.name, book.isbn, book.author, book.price))
+			total += parseFloat(book.price)
 		}
+
+		document.getElementById('total').innerText = `Total: ${total}.00`;
 		
 		let message = document.getElementById('message');
 		setTimeout(function(){
