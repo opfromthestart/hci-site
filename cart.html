@@ -54,8 +54,8 @@
 
 		let cart_list = JSON.parse(window.sessionStorage.getItem("cart"))
 		let cart = document.getElementById("cart-list");
-		for (book in cart_list) {
-			let book = cart_list[book]
+		for (b in cart_list) {
+			let book = cart_list[b]
 			cart.appendChild(make_cart(book.img, book.name, book.isbn, book.author, book.price))
 		}
 		
